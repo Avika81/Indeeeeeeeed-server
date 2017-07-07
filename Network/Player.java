@@ -216,7 +216,11 @@ public class Player {
 			if(eventSocket.getRemote() == null) {
 				if(Constants.networkDebug) System.out.println("RemoteEndPoint closed for player: " + playerIndex);
 				return;				
+<<<<<<< HEAD
 			}
+=======
+			}			
+>>>>>>> a696ca97f5b3b33b670e103d14fadf584ceb6497
 			eventSocket.getRemote().sendString(_string);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
