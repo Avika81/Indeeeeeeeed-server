@@ -249,10 +249,10 @@ public class CardsData {
 
 		creature = assignCreatureStats(creature);
 
-		if (creature.rangeAttack)
-			creature = assignRangeCreatureStats(creature);
+		//if (creature.rangeAttack)
+		//	creature = assignRangeCreatureStats(creature);
 
-		creature = assignCreatureEffects(creature);
+		//creature = assignCreatureEffects(creature);
 
 		creature.calculateParameters();
 		return creature;
@@ -262,772 +262,148 @@ public class CardsData {
 				
 		switch (creature.acronym) {
 		case (Constants.CR_CREEPER):
-			creature.manaCost         = 6;
-			creature.maxHp            = 150;
-			creature.damage           = 100;
-			creature.attackSpeed      = 0.5f;
-			creature.attackFocus      = Creature.AttackTargetFocus.AOE;
-			creature.areaDamageRadius = 12f;
-			creature.attackType       = Creature.AttackType.MAGIC;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.MYTHIC;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.5f;
+			assignCreeper(creature);
 			break;
 		case (Constants.CR_DWARF_ARCHER):
-			creature.manaCost         = 3;
-			creature.maxHp            = 100;
-			creature.damage           = 40;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.COMMON;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.SMALL;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.5f;
+			assignDwarfArcher(creature);
 			break;
 		case (Constants.CR_DWARF_ENGINEER):
-			creature.manaCost         = 5;
-			creature.maxHp            = 150;
-			creature.damage           = 75;
-			creature.attackSpeed      = 0.5f;
-			creature.attackFocus      = Creature.AttackTargetFocus.AOE;
-			creature.areaDamageRadius = 12f;			
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.EPIC;
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.SMALL;
-			creature.attackClipSpeed  = 0.8f;
-			creature.attackClipLength = 0.833f;
-			creature.clipPoint        = 0.5f;
+			assignDwarfEngineer(creature);
 			break;
 		case (Constants.CR_DWARF_WARRIOR):
-			creature.manaCost         = 3;
-			creature.maxHp            = 175;
-			creature.damage           = 60;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.COMMON;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.SMALL;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.5f;
+			assignDwarfWarrior(creature);
 			break;
 		case (Constants.CR_DRAKE_BLACK):			
-			creature.manaCost         = 4;
-		    creature.copies           = 4;
-			creature.maxHp            = 50;
-			creature.damage           = 40;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.RARE;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.TINY;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 0.733f;
-			creature.clipPoint        = 0.6f;
+			assignDrakeBlack(creature);
 			break;
 		case (Constants.CR_DRAKE_ORANGE):
-			creature.manaCost         = 6;
-			creature.maxHp            = 300;
-			creature.damage           = 80;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.MAGIC;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.MYTHIC;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 0.733f;
-			creature.clipPoint        = 0.6f;
+			assignDrakeOrange(creature);
 			break;
 		case (Constants.CR_ELF_MAGE):
-			creature.manaCost         = 3;
-			creature.maxHp            = 75;
-			creature.damage           = 50;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.MAGIC;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.RARE;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 0.667f;
-			creature.clipPoint        = 0.41f;
+			assignElfMage(creature);
 			break;
 		case (Constants.CR_ELF_RANGER):
-			creature.manaCost         = 3;
-			creature.maxHp            = 65;
-			creature.damage           = 30;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.RARE;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 0.667f;
-			creature.clipPoint        = 0.5f;
+			assignElfRanger(creature);
 			break;
 		case (Constants.CR_ELF_ROGUE):
-			creature.manaCost         = 3;
-			creature.maxHp            = 100;
-			creature.damage           = 30;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.RARE;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.5f;
+			assignElfRogue(creature);
 			break;
 		case (Constants.CR_ELEMENTAL_FIRE):
-			creature.manaCost         = 8;
-			creature.maxHp            = 750;
-			creature.damage           = 50;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.MAGIC;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.RARE;
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.LARGE;
-			creature.attackClipSpeed  = 1.167f;
-			creature.attackClipLength = 1.167f;
-			creature.clipPoint        = 0.45f;
+			assignElementalFire(creature);
 			break;
 		case (Constants.CR_ELEMENTAL_FOREST):
-			creature.manaCost         = 7;
-			creature.maxHp            = 750;
-			creature.damage           = 20;
-//			creature.damage           = 250;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.EPIC;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.LARGE;
-			creature.attackClipSpeed  = 1.167f;
-			creature.attackClipLength = 1.167f;
-			creature.clipPoint        = 0.55f;
+			assignElementalForest(creature);
 			break;
 		case (Constants.CR_ELEMENTAL_STONE):
-			creature.manaCost         = 7;
-			creature.maxHp            = 750;
-			creature.damage           = 50;
-//			creature.damage           = 35;			
-			creature.attackSpeed      = 0.5f;
-//			creature.attackFocus      = Creature.AttackTargetFocus.AOE;
-//			creature.areaDamageRadius = 20f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.MYTHIC;
-			creature.ms               = Creature.MovementSpeed.SLOW;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.LARGE;
-			creature.attackClipSpeed  = 1.167f;
-			creature.attackClipLength = 1.167f;
-			creature.clipPoint        = 0.55f;
+			assignElementalStone(creature);
 			break;
 		case (Constants.CR_GOBLIN_PIKER):
-			creature.manaCost         = 3;
-			creature.copies           = 2;			
-			creature.maxHp            = 60;
-			creature.damage           = 50;
-//			creature.damage           = 70;			
-			creature.attackSpeed      = 1f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.COMMON;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.TINY;
-			creature.attackClipSpeed  = 3f;
-			creature.attackClipLength = 2f;
-			creature.clipPoint        = 0.4f;
+			assignGoblinPiker(creature);
 			break;
 		case (Constants.CR_GOBLIN_SCOUT):			
-			creature.manaCost         = 3;
-		    creature.copies           = 2;
-		    creature.maxHp            = 70;
-//			creature.maxHp            = 30;
-			creature.damage           = 40;
-			creature.attackSpeed      = 0.66f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.COMMON;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.TINY;
-			creature.mass             = 5;
-			creature.attackClipSpeed  = 2.267f;
-			creature.attackClipLength = 2.267f;
-			creature.clipPoint        = 0.2f;
+			assignGoblinScout(creature);
 			break;
 		case (Constants.CR_HUMAN_ARCHER):
-			creature.manaCost         = 2;
-			creature.maxHp            = 75;
-			creature.damage           = 25;
-//			creature.damage           = 17;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.COMMON;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 2.267f;
-			creature.attackClipLength = 2.267f;
-			creature.clipPoint        = 0.35f;
+			assignHumanArcher(creature);
 			break;
 		case (Constants.CR_HUMAN_CLERIC):
-			creature.manaCost         = 4;
-		    creature.maxHp            = 230;
-//			creature.maxHp            = 100;
-			creature.damage           = 20;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NONE;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.MYTHIC;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 0.667f;
-			creature.attackClipLength = 0.667f;
-			creature.clipPoint        = 0.35f;
+			assignHumanCleric(creature);
 			break;
 		case (Constants.CR_HUMAN_WARRIOR):
-			creature.manaCost         = 2;
-			creature.maxHp            = 150;
-			creature.damage           = 60;
-//			creature.damage           = 25;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.COMMON;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 0.625f;
-			creature.attackClipLength = 0.625f;
-			creature.clipPoint        = 0.5f;
+			assignHumanWarrior(creature);
 			break;
 		case (Constants.CR_HUMAN_WIZARD):
-			creature.manaCost         = 3;
-			creature.maxHp            = 70;
-			creature.damage           = 40;
-//			creature.maxHp            = 50;
-//			creature.damage           = 20;
-			creature.attackSpeed      = 0.5f;
-			creature.attackFocus      = Creature.AttackTargetFocus.AOE;
-			creature.areaDamageRadius = 12f;
-			creature.attackType       = Creature.AttackType.MAGIC;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.COMMON;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 0.667f;
-			creature.attackClipLength = 0.667f;
-			creature.clipPoint        = 0.35f;
+			assignHumanWizard(creature);
 			break;
 		case (Constants.CR_KING):
-			creature.manaCost         = 0;
-			creature.maxHp            = 2000;
-			creature.damage           = 70;
-//			creature.attackSpeed      = 0.3f; // TODO - check this!
-			creature.attackSpeed      = 0.4f; // TODO - check this!
-			creature.attackType       = Creature.AttackType.NONE;
-			creature.defenceType      = Creature.DefenceType.NONE;			
-			creature.ms               = Creature.MovementSpeed.IMMOBILE;
-			creature.rangeAttack      = true;
-			creature.speedShoot       = 40f;
-			creature.size             = Creature.Size.LARGE;
-//			creature.attackClipSpeed  = 1.4f;
-			creature.attackClipSpeed  = 1.9f;
-			creature.attackClipLength = 4.133f;
-			creature.clipPoint        = 0.55f;
+			assignKing(creature);
 			break;
 		case (Constants.CR_LOBSTER):
-			creature.manaCost         = 0;
-			creature.maxHp            = 50;
-			creature.damage           = 20;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.ARMOR;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;
-			creature.speedShoot       = 50f;
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 0.967f;
-			creature.attackClipLength = 0.967f;
-			creature.clipPoint        = 0.5f;
+			assignLobster(creature);
 			break;
 		case (Constants.CR_LEFT_KING):
 		case (Constants.CR_RIGHT_KING):
-			creature.manaCost         = 0;
-			creature.maxHp            = 1000;
-			creature.damage           = 50;
-//			creature.attackSpeed      = 0.3f;
-			creature.attackSpeed      = 0.4f;
-			creature.attackType       = Creature.AttackType.NONE;
-			creature.defenceType      = Creature.DefenceType.NONE;			
-			creature.ms               = Creature.MovementSpeed.IMMOBILE;
-			creature.rangeAttack      = true;
-			creature.speedShoot       = 40f;
-			creature.size             = Creature.Size.LARGE;
-//			creature.attackClipSpeed  = 1.4f;
-			creature.attackClipSpeed  = 1.9f;
-			creature.attackClipLength = 4.133f;
-			creature.clipPoint        = 0.55f;
+			assignSmallKing(creature);
 			break;
 		case (Constants.CR_MINION):
-			creature.manaCost         = 0;
-			creature.maxHp            = 50;
-			creature.damage           = 5;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NONE;
-			creature.defenceType      = Creature.DefenceType.NONE;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;
-			creature.speedShoot       = 50f;
-			creature.size             = Creature.Size.SMALL;
-			creature.attackClipSpeed  = 1.133f;
-			creature.attackClipLength = 1.133f;
-			creature.clipPoint        = 0.4f;
+			assignMinion(creature);
 			break;
 		case (Constants.CR_ORC_ASSASSIN):
-			creature.manaCost         = 5;
-			creature.maxHp            = 100;
-			creature.damage           = 200;
-//			creature.damage           = 100;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.RARE;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.3f;
+			assignOrcAssassin(creature);
 			break;
 		case (Constants.CR_ORC_BEASTMASTER):
-			creature.manaCost         = 5;
-		    creature.maxHp            = 200;
-//			creature.maxHp            = 250;
-			creature.damage           = 170;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.EPIC;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.3f;
+			assignOrcBeastMaster(creature);
 			break;
 		case (Constants.CR_ORC_GLADIATOR):
-			creature.manaCost         = 4;
-			creature.maxHp            = 225;
-			creature.damage           = 100;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.RARE;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.3f;
+			assignOrcGladiator(creature);
 			break;
 		case (Constants.CR_ORC_MYSTIC):
-			creature.manaCost         = 3;
-			creature.maxHp            = 100;
-			creature.damage           = 50;
-//			creature.maxHp            = 50;
-//			creature.damage           = 25;
-			creature.attackSpeed      = 0.5f;
-			creature.attackFocus      = Creature.AttackTargetFocus.AOE;
-			creature.areaDamageRadius = 12f;
-			creature.attackType       = Creature.AttackType.MAGIC;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.COMMON;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.2f;
+			assignOrcMystic(creature);
 			break;
 		case (Constants.CR_ORC_NECROMANCER):
-			creature.manaCost         = 3;
-			creature.maxHp            = 100;
-			creature.damage           = 40;
-//			creature.damage           = 20;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.MAGIC;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.RARE;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.3f;
+			assignOrcNectomancer(creature);
 			break;
 		case (Constants.CR_ORC_SCOUT):
-			creature.manaCost         = 4;
-			creature.maxHp            = 250;
-			creature.damage           = 75;
-//			creature.maxHp            = 150;
-//			creature.damage           = 50;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.COMMON;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 0.667f;
-			creature.clipPoint        = 0.35f;
+			assignOrcScout(creature);
 			break;
 		case (Constants.CR_ORC_SHAMAN):
-			creature.manaCost         = 4;
-			creature.maxHp            = 200;
-//			creature.maxHp            = 150;
-			creature.damage           = 35;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.MAGIC;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.COMMON;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.3f;
+			assignOrcShaman(creature);
 			break;
 		case (Constants.CR_ORC_WARRIOR):
-			creature.manaCost         = 4;
-//			creature.maxHp            = 175;
-			creature.maxHp            = 200;
-			creature.damage           = 75;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.COMMON;		
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.3f;
+			assignOrcWarrior(creature);
 			break;
 		case (Constants.CR_ORC_WIZARD):
-			creature.manaCost         = 2;
-//			creature.maxHp            = 125;
-			creature.maxHp            = 75;
-			creature.damage           = 20;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.MAGIC;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.COMMON;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.2f;
+			assignOrcWizzard(creature);
 			break;
 		case (Constants.CR_PRACTICE_DUMMY):
-			creature.manaCost         = 1;
-		    creature.copies           = 2;
-			creature.maxHp            = 25;
-			creature.damage           = 0;
-			creature.attackSpeed      = 0f;
-			creature.attackType       = Creature.AttackType.NONE;
-			creature.defenceType      = Creature.DefenceType.NONE;
-			creature.rarity           = GameCard.CardRarity.COMMON;			
-			creature.ms               = Creature.MovementSpeed.IMMOBILE;
-			creature.healthRegen      = defaultImmobileHpRegenModifier;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.SMALL;
+			assignPracticeDummy(creature);
 			break;
 		case (Constants.CR_QUEEN_OF_BLADES):			
-			creature.manaCost         = 7;
-			creature.maxHp            = 600;
-//			creature.damage           = 65;
-//			creature.attackSpeed      = 0.5f;
-			creature.damage           = 90;
-			creature.attackSpeed      = 0.33f;
-			creature.attackFocus      = Creature.AttackTargetFocus.AOE;
-			creature.areaDamageRadius = 12f;
-			creature.attackType       = Creature.AttackType.MAGIC;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.EPIC;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.LARGE;
-			creature.attackClipSpeed  = 1.033f;
-			creature.attackClipLength = 1.033f;
-			creature.clipPoint        = 0.2f;
+			assignQueenOfBlades(creature);
 			break;
 		case (Constants.CR_SKELETON_KING):
-			creature.manaCost         = 5;
-			creature.maxHp            = 400;
-			creature.damage           = 60;
-			creature.attackSpeed      = 0.33f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.MYTHIC;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.LARGE;
-			creature.attackClipSpeed  = 1.165f;
-			creature.attackClipLength = 2.333f;
-			creature.clipPoint        = 0.35f;
+			assignSkeletonKing(creature);
 			break;
 		case (Constants.CR_SKELETON_MAGE):
-			creature.manaCost         = 2;
-			creature.copies           = 3;			
-			creature.maxHp            = 5;
-			creature.damage           = 30;
-//			creature.damage           = 15;
-			creature.attackSpeed      = 0.5f;
-			creature.attackFocus      = Creature.AttackTargetFocus.AOE;
-			creature.areaDamageRadius = 12f;
-			creature.attackType       = Creature.AttackType.MAGIC;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.COMMON;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.TINY;
-			creature.attackClipSpeed  = 1.5f;
-			creature.attackClipLength = 1.5f;
-			creature.clipPoint        = 0.35f;
+			assignSkeletonMage(creature);
 			break;
 		case (Constants.CR_SKELETON_WARRIOR):
-			creature.manaCost         = 1;
-			creature.copies           = 3;			
-			creature.maxHp            = 5;
-			creature.damage           = 20;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.RARE;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.TINY;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.35f;
+			assignSkeletonWarrior(creature);
 			break;
 		case (Constants.CR_SKELETON_GRUNT):
-			creature.manaCost         = 3;	
-			creature.maxHp            = 5;
-			creature.damage           = 20;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.RARE;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.TINY;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.35f;
+			assignSkeletonGrunt(creature);
 			break;
 		case (Constants.CR_SKELETON_HORDE):
-			creature.manaCost         = 3;
-			creature.copies           = 10;			
-			creature.maxHp            = 5;
-			creature.damage           = 20;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.RARE;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.TINY;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.35f;
+			assignSkeletonHorde(creature);
 			break;
 		case (Constants.CR_SKELETON_ARCHER):
-			creature.manaCost         = 1;
-			creature.copies           = 3;			
-			creature.maxHp            = 5;
-			creature.damage           = 10;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.COMMON;			
-			creature.attackSpeed      = 0.5f;
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.TINY;
-			creature.attackClipSpeed  = 1.6f;
-			creature.attackClipLength = 1.6f;
-			creature.clipPoint        = 0.35f;
+			assignSkeletonArcher(creature);
 			break;
 		case (Constants.CR_GHOST):
-			creature.manaCost         = 4;
-//			creature.maxHp            = 100;
-			creature.maxHp            = 200;
-			creature.damage           = 65;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.RARE;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.SMALL;
-			creature.attackClipSpeed  = 1.633f;
-			creature.attackClipLength = 1.633f;
-//			creature.clipPoint        = 0.35f;
-			creature.clipPoint        = 0.3f;
+			assignGhost(creature);
 			break;
 		case (Constants.CR_TENTACLE):
-			creature.manaCost         = 7;
-			creature.maxHp            = 500;
-			creature.damage           = 50;
-//			creature.damage           = 100;
-			creature.attackSpeed      = 0.5f;
-			creature.attackFocus      = Creature.AttackTargetFocus.AOE;
-			creature.areaDamageRadius = 12f;
-			creature.attackType       = Creature.AttackType.MAGIC;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.EPIC;			
-			creature.ms               = Creature.MovementSpeed.IMMOBILE;
-			creature.healthRegen      = defaultImmobileHpRegenModifier;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.LARGE;
-			creature.attackClipSpeed  = 1.167f;
-			creature.attackClipLength = 1.167f;
-			creature.clipPoint        = 0.55f;
+			assignTentacle(creature);
 			break;
 		case (Constants.CR_TREANT):
-			creature.manaCost         = 3;
-			creature.maxHp            = 150;
-			creature.damage           = 60;
-//			creature.damage           = 20;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.COMMON;			
-			creature.ms               = Creature.MovementSpeed.SLOW;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1.167f;
-			creature.attackClipLength = 1.167f;
-			creature.clipPoint        = 0.4f;
+			assignTreant(creature);
 			break;
 		case (Constants.CR_VEGETABLE):
-			creature.manaCost         = 4;
-			creature.maxHp            = 250;
-			creature.damage           = 30;
-			creature.attackSpeed      = 0.5f;
-			creature.attackFocus      = Creature.AttackTargetFocus.AOE;
-			creature.areaDamageRadius = 12f;
-			creature.attackType       = Creature.AttackType.NORMAL;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.EPIC;			
-			creature.ms               = Creature.MovementSpeed.IMMOBILE;
-			creature.healthRegen      = defaultImmobileHpRegenModifier;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1.1667f;
-			creature.attackClipLength = 1.1667f;
-			creature.clipPoint        = 0.4f;
+			assignVegetable(creature);
 			break;
 		case (Constants.CR_WOLF):
-			creature.manaCost         = 3;
-			creature.maxHp            = 150;
-			creature.damage           = 10;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.MAGIC;
-			creature.defenceType      = Creature.DefenceType.ARMOR;
-			creature.rarity           = GameCard.CardRarity.RARE;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1f;
-			creature.attackClipLength = 1f;
-			creature.clipPoint        = 0.55f;
+			assignWolf(creature);
 			break;
 		case (Constants.CR_ZOMBIE_ARCHER):
-			creature.manaCost         = 3;
-			creature.maxHp            = 100;
-			creature.damage           = 25;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.MAGIC;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.RARE;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = true;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1.25f;
-			creature.attackClipLength = 1.25f;
-			creature.clipPoint        = 0.6f;
+			assignZombieArcher(creature);
 			break;
 		case (Constants.CR_ZOMBIE_NECRO):
-			creature.manaCost         = 5;
-			creature.maxHp            = 250;
-			creature.damage           = 0;
-			creature.attackSpeed      = 1f/3f;
-			creature.attackType       = Creature.AttackType.NONE;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.MYTHIC;			
-			creature.ms               = Creature.MovementSpeed.IMMOBILE;
-			creature.healthRegen      = defaultImmobileHpRegenModifier;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.canAttack        = false;
-			creature.attackClipSpeed  = 0.667f;
-			creature.attackClipLength = 0.667f;
-			creature.clipPoint        = 0.5f;
+			assignZombieNecro(creature);
 			break;
 		case (Constants.CR_ZOMBIE_WARRIOR):
-			creature.manaCost         = 4;
-			creature.maxHp            = 200;
-			creature.damage           = 50;
-			creature.attackSpeed      = 0.5f;
-			creature.attackType       = Creature.AttackType.MAGIC;
-			creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
-			creature.rarity           = GameCard.CardRarity.RARE;			
-			creature.ms               = Creature.MovementSpeed.AVERAGE;
-			creature.rangeAttack      = false;			
-			creature.size             = Creature.Size.MEDIUM;
-			creature.attackClipSpeed  = 1.042f;
-			creature.attackClipLength = 1.042f;
-			creature.clipPoint        = 0.65f;
+			assignZombieWarrior(creature);
 			break;
 		}
-		
 		
 		
 		switch(creature.size)
@@ -1093,170 +469,9 @@ public class CardsData {
 		creature.attackClipSpeedSA      = creature.attackClipSpeed;
         creature.attackClipLengthSA     = creature.attackClipLength;
         creature.clipPointSA            = creature.clipPoint;
-        
-		return creature;
-	}
-
-	private static Creature assignRangeCreatureStats(Creature creature) {
-		switch (creature.acronym) {
-		case Constants.CR_GOBLIN_SCOUT:
-			creature.yStartShoot      = 3f;
-//			creature.yHitShoot        = 7f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 5.65f;
-			creature.gravity          = -80f;
-			break;
-		case Constants.CR_HUMAN_WIZARD:
-			creature.xStartShoot      = -1.1f;
-			creature.yStartShoot      = 7.5f;
-//			creature.yHitShoot        = 7f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 2.5f;
-			creature.gravity          = -0f;
-			break;
-		case Constants.CR_HUMAN_CLERIC:
-			creature.xStartShoot      = -1.1f;
-			creature.yStartShoot      = 10f;
-//			creature.yHitShoot        = 7f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 2.5f;
-			creature.gravity          = -0f;
-			break;
-		case Constants.CR_HUMAN_ARCHER:
-			creature.yStartShoot      = 4.2f;
-//			creature.yHitShoot        = 7f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 2.5f;
-			creature.gravity          = -80f;
-			break;
-		case Constants.CR_DWARF_ENGINEER:			
-			creature.xStartShoot      = 2f;
-			creature.xHitShoot        = -1f;
-			creature.yStartShoot      = 4f;
-//			creature.yHitShoot        = 0f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 0f;
-			creature.gravity          = -200f;
-			break;
-		case Constants.CR_ZOMBIE_NECRO:			
-			creature.xHitShoot        = -2f;
-			creature.yStartShoot      = 8f;
-//			creature.yHitShoot        = 0f;
-			creature.speedShoot       = 50f;
-			creature.projectileLength = 2.5f;
-			creature.gravity          = -300f;
-			break;
-		case Constants.CR_ORC_SCOUT:			
-			creature.xStartShoot      = 0.5f;
-			creature.yStartShoot      = 4f;
-//			creature.yHitShoot        = 5f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 0f;
-			creature.gravity          = -60f;
-			break;
-		case Constants.CR_SKELETON_MAGE:			
-			creature.xStartShoot      = 0.5f;
-			creature.yStartShoot      = 3.5f;
-//			creature.yHitShoot        = 5f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 0f;
-			creature.gravity          = -60f;
-			break;
-		case Constants.CR_DWARF_ARCHER:
-			creature.xStartShoot      = 2.5f;
-			creature.yStartShoot      = 3.5f;
-//			creature.yHitShoot        = 3.5f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 0.0f;
-			creature.gravity          = -80f;
-			break;
-		case Constants.CR_VEGETABLE:			
-			creature.xStartShoot      = 0.75f;
-			creature.yStartShoot      = 5f;
-//			creature.yHitShoot        = 4f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 0f;
-			creature.gravity          = -200f;
-			break;
-		case Constants.CR_TENTACLE:			
-			creature.xStartShoot      = 0.75f;
-			creature.yStartShoot      = 5f;
-//			creature.yHitShoot        = 4f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 0f;
-			creature.gravity          = -200f;
-			break;
-		case Constants.CR_SKELETON_ARCHER:			
-			creature.yStartShoot      = 2.5f;
-//			creature.yHitShoot        = 5f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 0f;
-			creature.gravity          = -80f;
-			break;
-		case Constants.CR_ZOMBIE_ARCHER:			
-			creature.yStartShoot      = 4.25f;
-//			creature.yHitShoot        = 5f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 3.5f;
-			creature.gravity          = -80f;
-			break;
-		case Constants.CR_ORC_WIZARD:
-			creature.yStartShoot      = 5f;
-//			creature.yHitShoot        = 5f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 1.5f;
-			creature.gravity          = -80f;
-			break;
-		case Constants.CR_ORC_MYSTIC:
-			creature.yStartShoot      = 5f;
-//			creature.yHitShoot        = 5f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 1.5f;
-			creature.gravity          = -80f;
-			break;
-		case Constants.CR_ELF_MAGE:
-			creature.yStartShoot      = 6f;
-//			creature.yHitShoot        = 3.5f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 1.5f;
-			creature.gravity          = -80f;
-			break;
-		case Constants.CR_ELF_RANGER:
-			creature.xStartShoot      = 2.5f;
-			creature.yStartShoot      = 4f;
-//			creature.yHitShoot        = 6f;
-			creature.speedShoot       = 80f;
-			creature.projectileLength = 0.0f;
-			creature.gravity          = -50f;
-			break;
-		case Constants.CR_GHOST:			
-			creature.xStartShoot      = 0.4f;
-			creature.xHitShoot        = 0.4f;
-			creature.yStartShoot      = 9f;
-//			creature.yHitShoot        = 6f;
-			creature.speedShoot       = 40f;
-			creature.projectileLength = 0f;
-			creature.gravity          = -50f;
-		case Constants.CR_KING:			
-			creature.xStartShoot      = 2.5f;
-			creature.yStartShoot      = 9f;
-//			creature.yHitShoot        = 5f;
-			creature.speedShoot       = 40f;
-			creature.projectileLength = 1f;
-			creature.gravity          = -80f;
-			break;
-		case Constants.CR_LEFT_KING:
-		case Constants.CR_RIGHT_KING:
-			creature.xStartShoot      = 1.65f;
-			creature.yStartShoot      = 6f;
-//			creature.yHitShoot        = 5f;
-			creature.speedShoot       = 40f;
-			creature.projectileLength = 1.65f;
-			creature.gravity          = -80f;
-			break;
-		}
-
-		creature.yHitShoot    = 3.5f;
+		
+        //range stats:
+        creature.yHitShoot    = 3.5f;
 		creature.xStartShoot *= GameManager.SPATIAL_SCALE_FACTOR;
 		creature.yStartShoot *= GameManager.SPATIAL_SCALE_FACTOR;
 		creature.xHitShoot   *= GameManager.SPATIAL_SCALE_FACTOR;
@@ -1265,11 +480,1089 @@ public class CardsData {
 		creature.gravity     *= GameManager.SPATIAL_SCALE_FACTOR;
 		creature.projectileLength *= GameManager.SPATIAL_SCALE_FACTOR; 
 
+		//effects:
+		ArrayList<CreatureEffect> every_x_attack_effects = creature.getEffects(CreatureEffect.Occurance.EVERY_X_ATTACKS);
+		if (!every_x_attack_effects.isEmpty())
+			creature.everyXattacks = every_x_attack_effects.get(0).xAttacks;
+
+		for (CreatureEffect effect : creature.effects) {
+			effect.radius *= GameManager.SPATIAL_SCALE_FACTOR;
+		}	
+		
 		return creature;
 	}
 
-	private static Creature assignCreatureEffects(Creature creature) {		
-		switch (creature.acronym) {
+	private static void assignZombieWarrior(Creature creature) {
+		creature.manaCost         = 4;
+		creature.maxHp            = 200;
+		creature.damage           = 50;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.MAGIC;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.RARE;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1.042f;
+		creature.attackClipLength = 1.042f;
+		creature.clipPoint        = 0.65f;
+	}
+
+	private static void assignZombieNecro(Creature creature) {
+		CreatureEffect effect_zombie_necro     = new CreatureEffect(
+				Type.RAISE_SKELETONS,
+				Occurance.PASSIVE,
+				TargetFocus.NONE,
+				TargetType.NONE,
+				(long)(1000f/creature.attackSpeed), // raises "Skeleton_Grunt" every 5 seconds
+				0,
+				0);
+	    creature.effects.add(effect_zombie_necro);
+	    
+		creature.manaCost         = 5;
+		creature.maxHp            = 250;
+		creature.damage           = 0;
+		creature.attackSpeed      = 1f/3f;
+		creature.attackType       = Creature.AttackType.NONE;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.MYTHIC;			
+		creature.ms               = Creature.MovementSpeed.IMMOBILE;
+		creature.healthRegen      = defaultImmobileHpRegenModifier;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.canAttack        = false;
+		creature.attackClipSpeed  = 0.667f;
+		creature.attackClipLength = 0.667f;
+		creature.clipPoint        = 0.5f;
+		
+		creature.xHitShoot        = -2f;
+		creature.yStartShoot      = 8f;
+//		creature.yHitShoot        = 0f;
+		creature.speedShoot       = 50f;
+		creature.projectileLength = 2.5f;
+		creature.gravity          = -300f;
+	}
+
+	private static void assignZombieArcher(Creature creature) {
+		creature.manaCost         = 3;
+		creature.maxHp            = 100;
+		creature.damage           = 25;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.MAGIC;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.RARE;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1.25f;
+		creature.attackClipLength = 1.25f;
+		creature.clipPoint        = 0.6f;
+		
+		creature.yStartShoot      = 4.25f;
+//		creature.yHitShoot        = 5f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 3.5f;
+		creature.gravity          = -80f;
+		
+	}
+
+	private static void assignWolf(Creature creature) {
+		creature.onslaught        = true;
+		creature.manaCost         = 3;
+		creature.maxHp            = 150;
+		creature.damage           = 50;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.MAGIC;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.RARE;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.55f;
+	}
+
+	private static void assignVegetable(Creature creature) {
+		creature.manaCost         = 4;
+		creature.maxHp            = 250;
+		creature.damage           = 30;
+		creature.attackSpeed      = 0.5f;
+		creature.attackFocus      = Creature.AttackTargetFocus.AOE;
+		creature.areaDamageRadius = 12f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.EPIC;			
+		creature.ms               = Creature.MovementSpeed.IMMOBILE;
+		creature.healthRegen      = defaultImmobileHpRegenModifier;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1.1667f;
+		creature.attackClipLength = 1.1667f;
+		creature.clipPoint        = 0.4f;
+		
+		creature.xStartShoot      = 0.75f;
+		creature.yStartShoot      = 5f;
+//		creature.yHitShoot        = 4f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 0f;
+		creature.gravity          = -200f;
+	}
+
+	private static void assignTreant(Creature creature) {
+		creature.manaCost         = 3;
+		creature.maxHp            = 150;
+		creature.damage           = 60;
+//			creature.damage           = 20;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.COMMON;			
+		creature.ms               = Creature.MovementSpeed.SLOW;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1.167f;
+		creature.attackClipLength = 1.167f;
+		creature.clipPoint        = 0.4f;
+	}
+
+	private static void assignTentacle(Creature creature) {
+		creature.manaCost         = 7;
+		creature.maxHp            = 500;
+		creature.damage           = 50;
+//			creature.damage           = 100;
+		creature.attackSpeed      = 0.5f;
+		creature.attackFocus      = Creature.AttackTargetFocus.AOE;
+		creature.areaDamageRadius = 12f;
+		creature.attackType       = Creature.AttackType.MAGIC;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.EPIC;			
+		creature.ms               = Creature.MovementSpeed.IMMOBILE;
+		creature.healthRegen      = defaultImmobileHpRegenModifier;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.LARGE;
+		creature.attackClipSpeed  = 1.167f;
+		creature.attackClipLength = 1.167f;
+		creature.clipPoint        = 0.55f;
+
+		creature.xStartShoot      = 0.75f;
+		creature.yStartShoot      = 5f;
+//		creature.yHitShoot        = 4f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 0f;
+		creature.gravity          = -200f;
+	}
+
+	private static void assignGhost(Creature creature) {
+		creature.flying           = true;
+		creature.manaCost         = 4;
+//			creature.maxHp            = 100;
+		creature.maxHp            = 200;
+		creature.damage           = 65;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.RARE;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.SMALL;
+		creature.attackClipSpeed  = 1.633f;
+		creature.attackClipLength = 1.633f;
+//			creature.clipPoint        = 0.35f;
+		creature.clipPoint        = 0.3f;
+
+		creature.xStartShoot      = 0.4f;
+		creature.xHitShoot        = 0.4f;
+		creature.yStartShoot      = 9f;
+//		creature.yHitShoot        = 6f;
+		creature.speedShoot       = 40f;
+		creature.projectileLength = 0f;
+		creature.gravity          = -50f;
+	}
+
+	private static void assignSkeletonArcher(Creature creature) {
+		creature.manaCost         = 1;
+		creature.copies           = 3;			
+		creature.maxHp            = 5;
+		creature.damage           = 10;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.COMMON;			
+		creature.attackSpeed      = 0.5f;
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.TINY;
+		creature.attackClipSpeed  = 1.6f;
+		creature.attackClipLength = 1.6f;
+		creature.clipPoint        = 0.35f;
+		
+		creature.yStartShoot      = 2.5f;
+//		creature.yHitShoot        = 5f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 0f;
+		creature.gravity          = -80f;
+	}
+
+	private static void assignSkeletonHorde(Creature creature) {
+		creature.manaCost         = 3;
+		creature.copies           = 10;			
+		creature.maxHp            = 5;
+		creature.damage           = 20;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.RARE;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.TINY;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.35f;
+	}
+
+	private static void assignSkeletonGrunt(Creature creature) {
+		creature.manaCost         = 3;	
+		creature.maxHp            = 5;
+		creature.damage           = 20;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.RARE;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.TINY;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.35f;
+	}
+
+	private static void assignSkeletonWarrior(Creature creature) {
+		creature.manaCost         = 1;
+		creature.copies           = 3;			
+		creature.maxHp            = 5;
+		creature.damage           = 20;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.RARE;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.TINY;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.35f;
+	}
+
+	private static void assignSkeletonMage(Creature creature) {
+		creature.manaCost         = 2;
+		creature.copies           = 3;			
+		creature.maxHp            = 5;
+		creature.damage           = 30;
+//			creature.damage           = 15;
+		creature.attackSpeed      = 0.5f;
+		creature.attackFocus      = Creature.AttackTargetFocus.AOE;
+		creature.areaDamageRadius = 12f;
+		creature.attackType       = Creature.AttackType.MAGIC;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.COMMON;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.TINY;
+		creature.attackClipSpeed  = 1.5f;
+		creature.attackClipLength = 1.5f;
+		creature.clipPoint        = 0.35f;
+		
+		creature.xStartShoot      = 0.5f;
+		creature.yStartShoot      = 3.5f;
+//		creature.yHitShoot        = 5f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 0f;
+		creature.gravity          = -60f;
+	}
+
+	private static void assignSkeletonKing(Creature creature) {
+		creature.manaCost         = 5;
+		creature.maxHp            = 400;
+		creature.damage           = 60;
+		creature.attackSpeed      = 0.33f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.MYTHIC;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.LARGE;
+		creature.attackClipSpeed  = 1.165f;
+		creature.attackClipLength = 2.333f;
+		creature.clipPoint        = 0.35f;
+	}
+
+	private static void assignQueenOfBlades(Creature creature) {
+		creature.manaCost         = 7;
+		creature.maxHp            = 600;
+//			creature.damage           = 65;
+//			creature.attackSpeed      = 0.5f;
+		creature.damage           = 90;
+		creature.attackSpeed      = 0.33f;
+		creature.attackFocus      = Creature.AttackTargetFocus.AOE;
+		creature.areaDamageRadius = 12f;
+		creature.attackType       = Creature.AttackType.MAGIC;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.EPIC;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.LARGE;
+		creature.attackClipSpeed  = 1.033f;
+		creature.attackClipLength = 1.033f;
+		creature.clipPoint        = 0.2f;
+	}
+
+	private static void assignPracticeDummy(Creature creature) {
+		CreatureEffect effect_dummy             = new CreatureEffect(
+				Type.TAUNT,
+				Occurance.ON_DEPLOY,
+				TargetFocus.AOE_SELF,
+				TargetType.ENEMY,
+				0f,
+				0,  
+				14);
+		creature.effects.add(effect_dummy);
+		
+		creature.manaCost         = 1;
+		creature.copies           = 2;
+		creature.maxHp            = 25;
+		creature.damage           = 0;
+		creature.attackSpeed      = 0f;
+		creature.attackType       = Creature.AttackType.NONE;
+		creature.defenceType      = Creature.DefenceType.NONE;
+		creature.rarity           = GameCard.CardRarity.COMMON;			
+		creature.ms               = Creature.MovementSpeed.IMMOBILE;
+		creature.healthRegen      = defaultImmobileHpRegenModifier;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.SMALL;
+	}
+
+	private static void assignOrcWizzard(Creature creature) {
+		creature.manaCost         = 2;
+//			creature.maxHp            = 125;
+		creature.maxHp            = 75;
+		creature.damage           = 20;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.MAGIC;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.COMMON;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.2f;
+		
+		creature.yStartShoot      = 5f;
+//		creature.yHitShoot        = 5f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 1.5f;
+		creature.gravity          = -80f;
+	}
+
+	private static void assignOrcWarrior(Creature creature) {
+		creature.manaCost         = 4;
+//			creature.maxHp            = 175;
+		creature.maxHp            = 200;
+		creature.damage           = 75;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.COMMON;		
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.3f;
+	}
+
+	private static void assignOrcShaman(Creature creature) {
+		CreatureEffect effect_orc_shaman        = new CreatureEffect(
+				Type.AS,
+				Occurance.PASSIVE,
+				TargetFocus.AOE_SELF,
+				TargetType.FRIENDLY,
+				30f,  // AS percent bonus
+				4000, // 4 seconds  
+				14);
+		effect_orc_shaman.xAttacks = 4;
+	    creature.effects.add(effect_orc_shaman);
+	    
+		creature.manaCost         = 4;
+		creature.maxHp            = 200;
+//			creature.maxHp            = 150;
+		creature.damage           = 35;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.MAGIC;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.COMMON;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.3f;
+	}
+
+	private static void assignOrcScout(Creature creature) {
+		creature.manaCost         = 4;
+		creature.maxHp            = 250;
+		creature.damage           = 75;
+//			creature.maxHp            = 150;
+//			creature.damage           = 50;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.COMMON;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 0.667f;
+		creature.clipPoint        = 0.35f;
+		
+		creature.xStartShoot      = 0.5f;
+		creature.yStartShoot      = 4f;
+//		creature.yHitShoot        = 5f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 0f;
+		creature.gravity          = -60f;
+	}
+
+	private static void assignOrcNectomancer(Creature creature) {
+//		CreatureEffect effect_orc_necro         = new CreatureEffect(
+//				Type.RAISE_SKELETONS,
+//				Occurance.PASSIVE,
+//				TargetFocus.NONE,
+//				TargetType.NONE,
+//				5000, // raises "Skeleton_Grunt" every 5 seconds
+//				0,
+//				0);
+//	    creature.effects.add(effect_orc_necro);
+				
+		creature.manaCost         = 3;
+		creature.maxHp            = 100;
+		creature.damage           = 40;
+//			creature.damage           = 20;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.MAGIC;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.RARE;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.3f;
+	}
+
+	private static void assignOrcMystic(Creature creature) {
+		creature.manaCost         = 3;
+		creature.maxHp            = 100;
+		creature.damage           = 50;
+//			creature.maxHp            = 50;
+//			creature.damage           = 25;
+		creature.attackSpeed      = 0.5f;
+		creature.attackFocus      = Creature.AttackTargetFocus.AOE;
+		creature.areaDamageRadius = 12f;
+		creature.attackType       = Creature.AttackType.MAGIC;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.COMMON;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.2f;
+		
+		creature.yStartShoot      = 5f;
+//		creature.yHitShoot        = 5f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 1.5f;
+		creature.gravity          = -80f;
+	}
+
+	private static void assignOrcGladiator(Creature creature) {
+		creature.manaCost         = 4;
+		creature.maxHp            = 225;
+		creature.damage           = 100;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.RARE;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.3f;
+	}
+
+	private static void assignOrcBeastMaster(Creature creature) {
+		creature.manaCost         = 5;
+		creature.maxHp            = 200;
+//			creature.maxHp            = 250;
+		creature.damage           = 170;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.EPIC;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.3f;
+	}
+
+	private static void assignOrcAssassin(Creature creature) {
+		creature.isVisible        = false;
+		creature.manaCost         = 5;
+		creature.maxHp            = 100;
+		creature.damage           = 200;
+//			creature.damage           = 100;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.RARE;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.3f;
+	}
+
+	private static void assignMinion(Creature creature) {
+		creature.manaCost         = 0;
+		creature.maxHp            = 50;
+		creature.damage           = 5;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NONE;
+		creature.defenceType      = Creature.DefenceType.NONE;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;
+		creature.speedShoot       = 50f;
+		creature.size             = Creature.Size.SMALL;
+		creature.attackClipSpeed  = 1.133f;
+		creature.attackClipLength = 1.133f;
+		creature.clipPoint        = 0.4f;
+	}
+
+	private static void assignSmallKing(Creature creature) {
+		creature.manaCost         = 0;
+		creature.maxHp            = 1000;
+		creature.damage           = 50;
+//			creature.attackSpeed      = 0.3f;
+		creature.attackSpeed      = 0.4f;
+		creature.attackType       = Creature.AttackType.NONE;
+		creature.defenceType      = Creature.DefenceType.NONE;			
+		creature.ms               = Creature.MovementSpeed.IMMOBILE;
+		creature.rangeAttack      = true;
+		creature.speedShoot       = 40f;
+		creature.size             = Creature.Size.LARGE;
+//			creature.attackClipSpeed  = 1.4f;
+		creature.attackClipSpeed  = 1.9f;
+		creature.attackClipLength = 4.133f;
+		creature.clipPoint        = 0.55f;
+
+		creature.xStartShoot      = 1.65f;
+		creature.yStartShoot      = 6f;
+//		creature.yHitShoot        = 5f;
+		creature.speedShoot       = 40f;
+		creature.projectileLength = 1.65f;
+		creature.gravity          = -80f;
+	}
+
+	private static void assignLobster(Creature creature) {
+		creature.manaCost         = 0;
+		creature.maxHp            = 50;
+		creature.damage           = 20;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.ARMOR;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;
+		creature.speedShoot       = 50f;
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 0.967f;
+		creature.attackClipLength = 0.967f;
+		creature.clipPoint        = 0.5f;
+	}
+
+	private static void assignKing(Creature creature) {
+		CreatureEffect effect_skeleton_king     = new CreatureEffect(
+				Type.AS,
+				Occurance.EVERY_X_ATTACKS,
+				TargetFocus.AOE_SELF,
+				TargetType.FRIENDLY,
+				30f,  // AS percent bonus
+				5000, // 5 seconds  
+				14);
+		effect_skeleton_king.xAttacks = 4;
+	    creature.effects.add(effect_skeleton_king);
+	    
+		creature.manaCost         = 0;
+		creature.maxHp            = 2000;
+		creature.damage           = 70;
+//			creature.attackSpeed      = 0.3f; // TODO - check this!
+		creature.attackSpeed      = 0.4f; // TODO - check this!
+		creature.attackType       = Creature.AttackType.NONE;
+		creature.defenceType      = Creature.DefenceType.NONE;			
+		creature.ms               = Creature.MovementSpeed.IMMOBILE;
+		creature.rangeAttack      = true;
+		creature.speedShoot       = 40f;
+		creature.size             = Creature.Size.LARGE;
+//			creature.attackClipSpeed  = 1.4f;
+		creature.attackClipSpeed  = 1.9f;
+		creature.attackClipLength = 4.133f;
+		creature.clipPoint        = 0.55f;
+		
+		creature.xStartShoot      = 2.5f;
+		creature.yStartShoot      = 9f;
+//		creature.yHitShoot        = 5f;
+		creature.speedShoot       = 40f;
+		creature.projectileLength = 1f;
+		creature.gravity          = -80f;
+	}
+
+	private static void assignHumanWizard(Creature creature) {
+		creature.manaCost         = 3;
+		creature.maxHp            = 70;
+		creature.damage           = 40;
+//			creature.maxHp            = 50;
+//			creature.damage           = 20;
+		creature.attackSpeed      = 0.5f;
+		creature.attackFocus      = Creature.AttackTargetFocus.AOE;
+		creature.areaDamageRadius = 12f;
+		creature.attackType       = Creature.AttackType.MAGIC;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.COMMON;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 0.667f;
+		creature.attackClipLength = 0.667f;
+		creature.clipPoint        = 0.35f;
+
+		creature.xStartShoot      = -1.1f;
+		creature.yStartShoot      = 7.5f;
+//		creature.yHitShoot        = 7f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 2.5f;
+		creature.gravity          = -0f;
+	}
+
+	private static void assignHumanWarrior(Creature creature) {
+		creature.manaCost         = 2;
+		creature.maxHp            = 100;
+		creature.damage           = 50;
+//			creature.damage           = 25;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.COMMON;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 0.625f;
+		creature.attackClipLength = 0.625f;
+		creature.clipPoint        = 0.5f;
+	}
+
+	private static void assignHumanCleric(Creature creature) {
+
+		CreatureEffect effect_human_cleric      = new CreatureEffect(
+				Type.HEAL, 
+				Occurance.EVERY_X_ATTACKS,
+				TargetFocus.SELF,
+				TargetType.FRIENDLY,
+				50,  /// amount of heal 
+				0,   /// instantaneous = no duration
+				14); /// heal in radius around himself
+		effect_human_cleric.xAttacks           = 3;
+		creature.effects.add(effect_human_cleric);
+		
+		creature.manaCost         = 4;
+		creature.maxHp            = 230;
+		creature.damage           = 20;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NONE;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.MYTHIC;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 0.667f;
+		creature.attackClipLength = 0.667f;
+		creature.clipPoint        = 0.35f;
+		
+		creature.xStartShoot      = -1.1f;
+		creature.yStartShoot      = 10f;
+//		creature.yHitShoot        = 7f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 2.5f;
+		creature.gravity          = -0f;
+	}
+
+	private static void assignHumanArcher(Creature creature) {
+		creature.onslaught        = true;
+		creature.manaCost         = 2;
+		creature.maxHp            = 75;
+		creature.damage           = 20;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.COMMON;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 2.267f;
+		creature.attackClipLength = 2.267f;
+		creature.clipPoint        = 0.35f;
+
+		creature.yStartShoot      = 4.2f;
+//		creature.yHitShoot        = 7f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 2.5f;
+		creature.gravity          = -80f;
+	}
+
+	private static void assignGoblinScout(Creature creature) {
+		creature.manaCost         = 3;
+		creature.copies           = 2;
+		creature.maxHp            = 70;
+		creature.damage           = 40;
+		creature.attackSpeed      = 0.66f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.COMMON;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.TINY;
+		creature.mass             = 5;
+		creature.attackClipSpeed  = 2.267f;
+		creature.attackClipLength = 2.267f;
+		creature.clipPoint        = 0.2f;
+		creature.yStartShoot      = 3f;
+//		creature.yHitShoot        = 7f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 5.65f;
+		creature.gravity          = -80f;
+	}
+
+	private static void assignGoblinPiker(Creature creature) {
+		creature.manaCost         = 3;
+		creature.copies           = 2;			
+		creature.maxHp            = 60;
+		creature.damage           = 50;
+		creature.attackSpeed      = 1f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.COMMON;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.TINY;
+		creature.attackClipSpeed  = 3f;
+		creature.attackClipLength = 2f;
+		creature.clipPoint        = 0.4f;
+	}
+
+	private static void assignElementalStone(Creature creature) {
+		creature.siege = true;			
+		creature.attackClipSpeedSA              = 1f;
+		creature.attackClipLengthSA             = 1.667f;
+		creature.clipPointSA                    = 0.5f;
+//		CreatureEffect effect_elemental_stone_1 = new CreatureEffect(
+//				Type.KNOCKBACK, 
+//				Occurance.EVERY_X_ATTACKS, 
+//				TargetFocus.AOE,
+//				TargetType.ENEMY,
+//				0, 1000, 30); // TODO - check if duration relevant to knockback
+		CreatureEffect effect_elemental_stone_2 = new CreatureEffect(
+				Type.STUN, 
+				Occurance.EVERY_X_ATTACKS, 
+				TargetFocus.SINGLE_TARGET,
+				TargetType.ENEMY,
+				0, 1000, 0);
+//		effect_elemental_stone_1.xAttacks = 4;
+		effect_elemental_stone_2.xAttacks       = 4;
+//		creature.effects.add(effect_elemental_stone_1);
+		creature.effects.add(effect_elemental_stone_2);
+		
+		creature.manaCost         = 7;
+		creature.maxHp            = 750;
+		creature.damage           = 50;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.MYTHIC;
+		creature.ms               = Creature.MovementSpeed.SLOW;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.LARGE;
+		creature.attackClipSpeed  = 1.167f;
+		creature.attackClipLength = 1.167f;
+		creature.clipPoint        = 0.55f;
+	}
+
+	private static void assignElementalForest(Creature creature) {
+		creature.attackClipSpeedSA              = 1.667f;
+		creature.attackClipSpeedSA              = 1;
+		creature.attackClipLengthSA             = 1.667f;
+		creature.clipPointSA                    = 0.6f;
+		CreatureEffect effect_elemental_forst   = new CreatureEffect(
+				Type.TAUNT, 
+				Occurance.EVERY_X_ATTACKS, 
+				TargetFocus.AOE_SELF,
+				TargetType.ENEMY,
+				0, 1000, 14); // TODO - check if duration relevant to taunt
+		effect_elemental_forst.xAttacks = 4;
+		creature.effects.add(effect_elemental_forst);
+		
+		creature.manaCost         = 7;
+		creature.maxHp            = 750;
+		creature.damage           = 20;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.EPIC;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.LARGE;
+		creature.attackClipSpeed  = 1.167f;
+		creature.attackClipLength = 1.167f;
+		creature.clipPoint        = 0.55f;
+	}
+
+	private static void assignElementalFire(Creature creature) {
+		creature.onslaught                      = true;			
+		creature.attackClipSpeedSA              = 1f;
+		creature.attackClipLengthSA             = 1f;
+		creature.clipPointSA                    = 0.6f;			
+		CreatureEffect effect_elemental_fire    = new CreatureEffect(
+			 Type.STUN,
+			 Occurance.EVERY_X_ATTACKS,
+			 TargetFocus.AOE_SELF,
+			 TargetType.ENEMY,
+			 0,
+			 1000,
+			 14);
+		effect_elemental_fire.xAttacks = 4;
+		creature.effects.add(effect_elemental_fire);
+		
+		creature.manaCost         = 8;
+		creature.maxHp            = 750;
+		creature.damage           = 50;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.MAGIC;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.RARE;
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.LARGE;
+		creature.attackClipSpeed  = 1.167f;
+		creature.attackClipLength = 1.167f;
+		creature.clipPoint        = 0.45f;
+	}
+
+	private static void assignElfRogue(Creature creature) {
+		creature.isVisible        = false;
+		creature.manaCost         = 3;
+		creature.maxHp            = 100;
+		creature.damage           = 30;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.RARE;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.5f;
+	}
+
+	private static void assignElfRanger(Creature creature) {
+		CreatureEffect effect_elf_ranger = new CreatureEffect(
+				Type.MULT_TARGET,
+				Occurance.ON_HIT,
+				TargetFocus.SINGLE_TARGET,
+				TargetType.ENEMY,
+				2, // 2 extra targets
+				0,
+				0);
+	    creature.effects.add(effect_elf_ranger);
+		
+		creature.manaCost         = 3;
+		creature.maxHp            = 65;
+		creature.damage           = 30;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.RARE;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 0.667f;
+		creature.clipPoint        = 0.5f;
+		
+		creature.xStartShoot      = 2.5f;
+		creature.yStartShoot      = 4f;
+//		creature.yHitShoot        = 6f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 0.0f;
+		creature.gravity          = -50f;
+	}
+
+	private static void assignElfMage(Creature creature) {
+		creature.manaCost         = 3;
+		creature.maxHp            = 75;
+		creature.damage           = 50;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.MAGIC;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.RARE;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 0.667f;
+		creature.clipPoint        = 0.41f;
+		
+		creature.yStartShoot      = 6f;
+//		creature.yHitShoot        = 3.5f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 1.5f;
+		creature.gravity          = -80f;
+	}
+
+	private static void assignDrakeOrange(Creature creature) {
+		creature.flying           = true;
+		creature.manaCost         = 6;
+		creature.maxHp            = 300;
+		creature.damage           = 80;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.MAGIC;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.MYTHIC;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 0.733f;
+		creature.clipPoint        = 0.6f;
+	}
+
+	private static void assignDrakeBlack(Creature creature) {
+		creature.flying           = true;
+		creature.manaCost         = 4;
+		creature.copies           = 4;
+		creature.maxHp            = 50;
+		creature.damage           = 40;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.RARE;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.TINY;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 0.733f;
+		creature.clipPoint        = 0.6f;
+	}
+
+	private static void assignDwarfWarrior(Creature creature) {
+		creature.manaCost         = 3;
+		creature.maxHp            = 175;
+		creature.damage           = 60;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.COMMON;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.SMALL;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.5f;
+	}
+
+	private static void assignDwarfEngineer(Creature creature) {
+		creature.manaCost         = 5;
+		creature.maxHp            = 150;
+		creature.damage           = 75;
+		creature.attackSpeed      = 0.5f;
+		creature.attackFocus      = Creature.AttackTargetFocus.AOE;
+		creature.areaDamageRadius = 12f;			
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.EPIC;
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.SMALL;
+		creature.attackClipSpeed  = 0.8f;
+		creature.attackClipLength = 0.833f;
+		creature.clipPoint        = 0.5f;
+		
+		creature.xStartShoot      = 2f;
+		creature.xHitShoot        = -1f;
+		creature.yStartShoot      = 4f;
+//		creature.yHitShoot        = 0f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 0f;
+		creature.gravity          = -200f;
+	}
+
+	
+	private static void assignDwarfArcher(Creature creature) {
+		creature.manaCost         = 3;
+		creature.maxHp            = 100;
+		creature.damage           = 40;
+		creature.attackSpeed      = 0.5f;
+		creature.attackType       = Creature.AttackType.NORMAL;
+		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
+		creature.rarity           = GameCard.CardRarity.COMMON;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = true;			
+		creature.size             = Creature.Size.SMALL;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.5f;
+
+		creature.xStartShoot      = 2.5f;
+		creature.yStartShoot      = 3.5f;
+//		creature.yHitShoot        = 3.5f;
+		creature.speedShoot       = 80f;
+		creature.projectileLength = 0.0f;
+		creature.gravity          = -80f;
+	}
+
+	private static void assignCreeper(Creature creature) {
+		creature.manaCost         = 6;
+		creature.maxHp            = 150;
+		creature.damage           = 100;
+		creature.attackSpeed      = 0.5f;
+		creature.attackFocus      = Creature.AttackTargetFocus.AOE;
+		creature.areaDamageRadius = 12f;
+		creature.attackType       = Creature.AttackType.MAGIC;
+		creature.defenceType      = Creature.DefenceType.ARMOR;
+		creature.rarity           = GameCard.CardRarity.MYTHIC;			
+		creature.ms               = Creature.MovementSpeed.AVERAGE;
+		creature.rangeAttack      = false;			
+		creature.size             = Creature.Size.MEDIUM;
+		creature.attackClipSpeed  = 1f;
+		creature.attackClipLength = 1f;
+		creature.clipPoint        = 0.5f;
+	}
+
+	//private static Creature assignCreatureEffects(Creature creature) {		
+	/*	switch (creature.acronym) {
 		case (Constants.CR_DRAKE_BLACK):
 		case (Constants.CR_DRAKE_ORANGE):
 			creature.flying                         = true;
@@ -1428,7 +1721,7 @@ public class CardsData {
 			effect.radius *= GameManager.SPATIAL_SCALE_FACTOR;
 		}		
 		return creature;
-	}
+	}*/
 
 
 	private static void populateAccessoryAcronymList() {
