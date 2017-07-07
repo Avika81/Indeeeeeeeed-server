@@ -215,15 +215,11 @@ public class Player {
 			if(Constants.DALDebug || Constants.networkDebug) System.out.println("sendData: " + _string + " Servertime: " + ServerMain.serverTime);
 			if(eventSocket.getRemote() == null) {
 				if(Constants.networkDebug) System.out.println("RemoteEndPoint closed for player: " + playerIndex);
-				return;				
-<<<<<<< HEAD
-			}
-=======
-			}			
->>>>>>> a696ca97f5b3b33b670e103d14fadf584ceb6497
+				return;	
+			} 
 			eventSocket.getRemote().sendString(_string);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+		}
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 		
