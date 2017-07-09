@@ -247,7 +247,7 @@ public class CardsData {
 	public static Creature createCreature(String acronym) {
 		Creature creature = new Creature(acronym);
 
-		creature = assignCreatureStats(creature);
+		creature = assignCreature(creature);
 
 		//if (creature.rangeAttack)
 		//	creature = assignRangeCreatureStats(creature);
@@ -258,7 +258,7 @@ public class CardsData {
 		return creature;
 	}
 
-	public static Creature assignCreatureStats(Creature creature) {
+	public static Creature assignCreature(Creature creature) {
 				
 		switch (creature.acronym) {
 		case (Constants.CR_CREEPER):
@@ -610,8 +610,9 @@ public class CardsData {
 	}
 
 	private static void assignTreant(Creature creature) {
+		creature.siege            = true;
 		creature.manaCost         = 3;
-		creature.maxHp            = 150;
+		creature.maxHp            = 400;
 		creature.damage           = 60;
 //			creature.damage           = 20;
 		creature.attackSpeed      = 0.5f;
@@ -628,8 +629,8 @@ public class CardsData {
 
 	private static void assignTentacle(Creature creature) {
 		creature.manaCost         = 7;
-		creature.maxHp            = 500;
-		creature.damage           = 50;
+		creature.maxHp            = 400;
+		creature.damage           = 130;
 //			creature.damage           = 100;
 		creature.attackSpeed      = 0.5f;
 		creature.attackFocus      = Creature.AttackTargetFocus.AOE;
@@ -653,18 +654,18 @@ public class CardsData {
 		creature.gravity          = -200f;
 	}
 
-	private static void assignGhost(Creature creature) {
+	private static void assignGhost(Creature creature) { 
 		creature.flying           = true;
 		creature.manaCost         = 4;
 //			creature.maxHp            = 100;
-		creature.maxHp            = 200;
-		creature.damage           = 65;
+		creature.maxHp            = 100;
+		creature.damage           = 170;
 		creature.attackSpeed      = 0.5f;
 		creature.attackType       = Creature.AttackType.NORMAL;
 		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
 		creature.rarity           = GameCard.CardRarity.RARE;			
-		creature.ms               = Creature.MovementSpeed.AVERAGE;
-		creature.rangeAttack      = false;			
+		creature.ms               = Creature.MovementSpeed.SLOW;
+		creature.rangeAttack      = false;
 		creature.size             = Creature.Size.SMALL;
 		creature.attackClipSpeed  = 1.633f;
 		creature.attackClipLength = 1.633f;
@@ -680,11 +681,11 @@ public class CardsData {
 		creature.gravity          = -50f;
 	}
 
-	private static void assignSkeletonArcher(Creature creature) {
+	private static void assignSkeletonArcher(Creature creature) { 
 		creature.manaCost         = 1;
 		creature.copies           = 3;			
 		creature.maxHp            = 5;
-		creature.damage           = 10;
+		creature.damage           = 50;
 		creature.attackType       = Creature.AttackType.NORMAL;
 		creature.defenceType      = Creature.DefenceType.MAGIC_RESIST;
 		creature.rarity           = GameCard.CardRarity.COMMON;			
@@ -781,7 +782,7 @@ public class CardsData {
 	}
 
 	private static void assignSkeletonKing(Creature creature) {
-		creature.manaCost         = 5;
+		creature.manaCost         = 6;
 		creature.maxHp            = 400;
 		creature.damage           = 60;
 		creature.attackSpeed      = 0.33f;
@@ -867,8 +868,8 @@ public class CardsData {
 	private static void assignOrcWarrior(Creature creature) {
 		creature.manaCost         = 4;
 //			creature.maxHp            = 175;
-		creature.maxHp            = 200;
-		creature.damage           = 75;
+		creature.maxHp            = 300;
+		creature.damage           = 80;
 		creature.attackSpeed      = 0.5f;
 		creature.attackType       = Creature.AttackType.NORMAL;
 		creature.defenceType      = Creature.DefenceType.ARMOR;
@@ -894,10 +895,10 @@ public class CardsData {
 	    creature.effects.add(effect_orc_shaman);
 	    
 		creature.manaCost         = 4;
-		creature.maxHp            = 200;
+		creature.maxHp            = 500;
 //			creature.maxHp            = 150;
 		creature.damage           = 35;
-		creature.attackSpeed      = 0.5f;
+		creature.attackSpeed      = 1f;
 		creature.attackType       = Creature.AttackType.MAGIC;
 		creature.defenceType      = Creature.DefenceType.ARMOR;
 		creature.rarity           = GameCard.CardRarity.COMMON;			
@@ -946,7 +947,7 @@ public class CardsData {
 //	    creature.effects.add(effect_orc_necro);
 				
 		creature.manaCost         = 3;
-		creature.maxHp            = 100;
+		creature.maxHp            = 150;
 		creature.damage           = 40;
 //			creature.damage           = 20;
 		creature.attackSpeed      = 0.5f;
@@ -1005,9 +1006,9 @@ public class CardsData {
 
 	private static void assignOrcBeastMaster(Creature creature) {
 		creature.manaCost         = 5;
-		creature.maxHp            = 200;
+		creature.maxHp            = 400;
 //			creature.maxHp            = 250;
-		creature.damage           = 170;
+		creature.damage           = 100;
 		creature.attackSpeed      = 0.5f;
 		creature.attackType       = Creature.AttackType.NORMAL;
 		creature.defenceType      = Creature.DefenceType.ARMOR;

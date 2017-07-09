@@ -23,7 +23,7 @@ public class CreatureCardRating
 	CreatureCardRating(String acronym_) {
 		acronym = acronym_;
 		creature = new Creature(acronym);
-		CardsData.assignCreatureStats(creature);
+		CardsData.assignCreature(creature);
 		maxHP = creature.maxHp;
 		DPS = AIManager.CreatureDPS(creature);
 		HPRating = creature.maxHp;

@@ -439,7 +439,7 @@ public class AIManager
 			ArrayList<Creature> creatureListEnemy,ArrayList<Creature> creatureListAI,
 			EncounterData encounterData, float timeToFullMana, Creature tankFound, MODE mode, SIDE side) {		
 		Creature newCreature = new Creature(creatureCardRating.acronym);
-		newCreature = CardsData.assignCreatureStats(newCreature);
+		newCreature = CardsData.assignCreature(newCreature);
 
 		DebugAILowLevel("CastAttacker - " + creatureCardRating.acronym);
 		
@@ -563,7 +563,7 @@ public class AIManager
 			CreatureCardRating creatureCardRating, POSITION_CORRECTION correction, Creature tank, MODE mode, float timeToFullMana, SIDE side) {	
 		CardCastData newCardCastData;
 		Creature newCreature = new Creature(creatureCardRating.acronym);
-		newCreature = CardsData.assignCreatureStats(newCreature);
+		newCreature = CardsData.assignCreature(newCreature);
 		newCardCastData = new CardCastData(new Creature(creatureCardRating.acronym));
 		newCardCastData.manaCost = newCreature.manaCost;
 		
@@ -1280,7 +1280,7 @@ public class AIManager
 			if (IsCreature(card.acronym)) {
 				CreatureCardRating newCreatureScore = new CreatureCardRating(card.acronym);
 				creaturesScores.add(newCreatureScore);
-				newCreatureScore.creature = CardsData.assignCreatureStats(newCreatureScore.creature);
+				newCreatureScore.creature = CardsData.assignCreature(newCreatureScore.creature);
 			}
 //			if (IsSpell(card.acronym))
 //			{
