@@ -64,6 +64,7 @@ public final class Constants {
 	public static final String DECK2                = "Deck2";
 	public static final String DECK3                = "Deck3";
 	public static final String CURRENT_DECK         = "CurrentDeck";
+	public static final String NEXT_CHEST_TIME      = "NextChestTime";
 	
 	public static final String CLIENT_DISCONNECTED  = "DISCONNECTED";
 	public static final String CLIENT_RECONNECTED   = "RECONNECTED";

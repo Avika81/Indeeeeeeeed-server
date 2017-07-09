@@ -11,6 +11,7 @@ import Network.CreatureEffect.Occurance;
 import Network.Spell.Effect;
 
 import java.lang.Math;
+import java.util.Calendar;
 
 /** Manages a Battle */
 public class GameManager {
@@ -2914,8 +2915,34 @@ public class GameManager {
 	}
 
 	public void sendEndGameNotice() {
-		players.get(0).sendData(Constants.END_GAME + Constants.FIELD_SEPERATOR + players.get(0).isVictorious);
-		players.get(1).sendData(Constants.END_GAME + Constants.FIELD_SEPERATOR + players.get(1).isVictorious);
+		sendEndGameNotice(players.get(0));
+		sendEndGameNotice(players.get(1));
+	}
+	
+	public void sendEndGameNotice(Player player) {
+		if(player.isAI)
+			return;
+		
+		boolean openNewChest = false;
+		Calendar now = Calendar.getInstance();
+		
+		if(now.getTime().getTime() > Long.parseLong(player.playerData.nextChestTime)) {
+			openNewChest = true;
+			
+			/// Set next chest to be available 6 hours from now
+			now.add(Calendar.HOUR, 6);
+			System.out.println("Next Chest Time: " + now.get(Calendar.DAY_OF_YEAR) + "/" + now.get(Calendar.YEAR) + " " + now.get(Calendar.HOUR) + ":" + now.get(Calendar.MINUTE) + ":" + now.get(Calendar.SECOND));
+			player.playerData.nextChestTime = String.valueOf(now.getTime().getTime());
+		}
+		player.sendData(
+				Constants.END_GAME + 
+				Constants.FIELD_SEPERATOR +
+				player.playerData.nextChestTime +				
+				Constants.FIELD_SEPERATOR +				
+				openNewChest +
+				Constants.FIELD_SEPERATOR +
+				players.get(0).isVictorious				
+				);
 	}
 
 	public void clearPlayersData() {

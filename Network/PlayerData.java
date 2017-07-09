@@ -20,6 +20,7 @@ public class PlayerData {
 	public boolean Deck2Updated=false;
 	public boolean Deck3Updated=false;
 	public boolean CurrentDeckUpdated=false;
+	public boolean NextChestTimeUpdated=false;
 	
 	public int DBIndex;
 	private int gold;
@@ -42,6 +43,7 @@ public class PlayerData {
 	private String deck3;
 	
 	public String currentDeckIndex = "0";
+	public String nextChestTime = "0";
 	
 	public PlayerData() {
 	}
@@ -88,6 +90,7 @@ public class PlayerData {
 		Deck2Updated = true;
 		Deck3Updated = true;
 		CurrentDeckUpdated = true;
+		NextChestTimeUpdated = true;
 	}
 	
 	public synchronized void syncData() {
@@ -109,6 +112,7 @@ public class PlayerData {
 		if (!Deck2Updated)DAL.postPlayerDeck2(DBIndex, deck2);
 		if (!Deck3Updated)DAL.postPlayerDeck3(DBIndex, deck3);
 		if (!CurrentDeckUpdated)DAL.postPlayerCurrentDeck(DBIndex, currentDeckIndex);
+		if (!NextChestTimeUpdated)DAL.postNextChestTime(DBIndex, nextChestTime);
 		DBupdated = true;
 	}
 	
@@ -203,6 +207,10 @@ public class PlayerData {
 				return deck1;
 		}
 	} 
+	
+	public synchronized String getNextChestTime() {
+		return nextChestTime;
+	}
 	
 	public synchronized void postUsername(String _username) {
 		username = _username;
@@ -310,5 +318,11 @@ public class PlayerData {
 		currentDeckIndex = index;
 		DBupdated = false;
 		CurrentDeckUpdated = false;
+	}
+	
+	public synchronized void postNextChestTime(String time) {
+		nextChestTime = time;
+		DBupdated = false;
+		NextChestTimeUpdated = false;
 	}
 }

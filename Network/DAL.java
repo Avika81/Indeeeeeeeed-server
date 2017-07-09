@@ -39,6 +39,7 @@ public class DAL {
 	public static final String DECK2 = "DECK2";
 	public static final String DECK3 = "DECK3";
 	public static final String CURRENT_DECK      = "CURRENT_DECK";
+	public static final String NEXT_CHEST_TIME   = "NEXT_CHEST_TIME";
 	
 	public static final String GOLD_DEFAULT = "1000";
     public static final String GEMS_DEFAULT = "100";
@@ -282,6 +283,9 @@ public class DAL {
 		postPlayerField(userID, CURRENT_DECK, deckIndex);
 	}
 	
+	public static void postNextChestTime(int userID, String nextChestTime) {
+		postPlayerField(userID, NEXT_CHEST_TIME, nextChestTime);
+	}	
 	
 	public static String getPlayerField(int userID, String field)  {
 		String[] parameters = {ID+String.valueOf(userID), FIELD+field};
