@@ -1,0 +1,49 @@
+package Network;
+import java.util.ArrayList;
+
+public class CreatureDynamicData {
+	
+	public int id;
+	public float softRadius;
+    public float hardRadius;
+    public Vector2 position;
+    public float mass;
+    public Player player;
+    public boolean immobile = false;
+    public boolean initiallyLocated = false;
+    
+    
+    public CreatureDynamicData(CreatureDynamicData data)
+    {
+       	this.id = data.id;
+    	this.position = data.position;
+    	this.player = data.player;
+    	this.player = data.player;
+		this.softRadius = data.softRadius;
+		this.hardRadius = data.hardRadius;
+		this.mass = data.mass;
+		this.immobile = data.immobile;
+		this.initiallyLocated = data.initiallyLocated;
+    }
+    
+    public CreatureDynamicData(Creature creature)
+    {
+    	this.id = creature.id;
+    	this.position = creature.pos;
+    	this.player = creature.player;
+		this.softRadius = creature.softRadius;
+		this.hardRadius = creature.hardRadius;
+		this.immobile = (creature.ms.equals(Creature.MovementSpeed.IMMOBILE));
+		this.initiallyLocated = creature.initiallyLocated;
+    }
+    
+    public static ArrayList<CreatureDynamicData> createArrayListClone(ArrayList<CreatureDynamicData> dataList)
+    {
+		ArrayList<CreatureDynamicData> clone = new ArrayList<CreatureDynamicData>(dataList.size());
+
+		for(CreatureDynamicData data : dataList)		
+			clone.add(new CreatureDynamicData(data));
+		
+		return clone;
+    }
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;EnemyKingPosition&apos; in &apos;Network.GameManager.moveCreature(...)&apos; to &apos;enemyKingPosition&apos;&#x0D;&#x0A;- Original project: &apos;SpitzServer&apos;&#x0D;&#x0A;- Original element: &apos;Network.GameManager.moveCreature(Creature).EnemyKingPosition&apos;&#x0D;&#x0A;- Renamed element: &apos;EnemyKingPosition&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;EnemyKingPosition&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;Network{GameManager.java[GameManager~moveCreature~QCreature;@EnemyKingPosition!97700!97725!97708!97724!QVector2;!0!false" name="enemyKingPosition" references="true" stamp="1496504420631" version="1.0"/>
+</session>

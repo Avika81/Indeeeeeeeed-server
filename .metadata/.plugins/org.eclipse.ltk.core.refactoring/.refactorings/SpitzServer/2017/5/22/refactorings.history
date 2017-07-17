@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;a&apos; in &apos;AI.AIManager.IsCreatureInCorrectSide(...)&apos; to &apos;creaturePosIsLeft&apos;&#x0D;&#x0A;- Original project: &apos;SpitzServer&apos;&#x0D;&#x0A;- Original element: &apos;AI.AIManager.IsCreatureInCorrectSide(SIDE, Vector2).a&apos;&#x0D;&#x0A;- Renamed element: &apos;a&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;a&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;AI{AIManager.java[AIManager~IsCreatureInCorrectSide~QSIDE;~QVector2;@a!40998!41047!41006!41006!Z!0!false" name="creaturePosIsLeft" references="true" stamp="1496044817104" version="1.0"/>
+</session>

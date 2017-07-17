@@ -1,0 +1,223 @@
+package Network;
+import java.util.ArrayList;
+
+
+/** Creature Data Structure */
+public class Creature extends GameCard{
+    
+	// INITIALIZING - MOVING - ATTACKING - IDLE - DEAD
+	public enum Status { INIT, MV, ATK, IDL, STN, DEAD };
+	public Status status;
+	
+	public ArrayList<Long> finishTimesAsChange = new ArrayList<>();
+	public ArrayList<Float> AsChanges = new ArrayList<>();
+	
+	public ArrayList<Long> finishTimesMsChange = new ArrayList<>();
+	public ArrayList<Float> MsChanges = new ArrayList<>();
+	
+	public enum MovementStatus { CREATURE, LEFT_FLAG, RIGHT_FLAG, ENEMY_KING};
+	public MovementStatus movementStatus;
+	
+	public enum AttackTargetFocus { SINGLE_TARGET, AOE, NONE };
+	public AttackTargetFocus attackFocus = AttackTargetFocus.SINGLE_TARGET;
+    
+    public enum AttackType { NORMAL, MAGIC, NONE };
+    public AttackType attackType = AttackType.NORMAL;
+    
+    public enum DefenceType { ARMOR, MAGIC_RESIST, NONE };
+    public DefenceType defenceType = DefenceType.ARMOR;
+
+    public ArrayList<CreatureEffect> effects = new ArrayList<CreatureEffect>();
+    
+    public enum MovementSpeed 
+    { 
+    	IMMOBILE(0), SLOW(2), AVERAGE(4), FAST(6);
+    	
+    	private int ms;
+    	
+    	MovementSpeed(int ms)
+    	{
+    		this.ms = ms;
+    	}
+    	
+		public int getValue() 
+		{
+			return ms;
+		}
+    }
+    public MovementSpeed ms;
+    
+	public ArrayList<Long> timeOfDmgs = new ArrayList<Long>();
+	public ArrayList<Long> timeOfSAs = new ArrayList<Long>();
+	//public ArrayList<Integer> indexOfSAs = new ArrayList<Integer>();
+	
+	public int copies = 1;
+	public float maxHp;
+	public float damage;
+	
+	public float normalDamageReduction;
+	public float magicDamageReduction;
+	public float spellDamageReduction;
+	public float abilityDamageReduction; // TODO - use this
+	
+	public float attackSpeed;	
+	public float AsFactor = 1;
+	public float MsFactor = 1;
+	public boolean rangeAttack;		
+	public float range;      // the range the creature will start attacking from
+	public float extraRangeOneHit; // range + extraRange = maxRange which allows 
+								// the creature to finish the attack
+	public float extraRangeContinuous;
+	public Status lastStatus;
+	
+	public boolean flying = false;
+	public boolean siege = false;
+	public boolean onslaught = false;
+	
+	public boolean attackCanceled = false;
+	public float hardRadius;
+	public float softRadius;
+	public float areaDamageRadius = 0;
+	public float mass;
+	public float lifeSteal = 0;
+    
+	public float movementSpeed;
+    public float scaledVision;    
+    public long timeOfAttackStart = 0;
+    
+    public float healthRegen = 0;
+    
+    public float firstStrikeBonus = 0;
+    public float firstDodgeBonus = 0;
+    
+    public int onslaughtCount = 0;
+    public float onslaughtBonus = 0;
+    public final int ONSLAUGHT_CAP = 6;
+    
+    public int effectHitCount = 1;
+    public boolean isNextAttackSA = false;
+    public boolean damageDealt = false;
+    public int everyXattacks = 0;
+    
+    public float clipPoint = 0;
+    public float attackClipSpeed = 1; // unitless
+    public float attackClipLength = 1;  //
+    public float clipPointSA = 0.5f;
+    public float attackClipSpeedSA = 1; // unitless
+    public float attackClipLengthSA = 1;  //
+    public float attackPauseTimeSeconds = 0;
+    public float attackPauseTimeSecondsSA = 0;
+    public long pauseAttackTime = 0;
+    public long pauseAttackTimeSA = 0;
+    
+	public long attackTime = 0;
+	float timeShoot = 0;
+	
+	public long effectiveTimeFromEngage = 0;
+	public long extraPauseTime = 0;
+	public long stopCountAt = 0;
+	public int attackNumSinceEngage = 0;
+	public long nextAttackPrepareTime = 0;
+	public boolean resetAttackTime = true;
+	public long stunFinishTime = 0;
+	public boolean isTaunted = false;
+	public Creature tauntTarget;
+	
+	public int id;
+    public Player player;
+    public Vector2 pos;
+        
+    public float currentHp;    
+    public Creature target;
+    boolean isFirstTarget = true;
+    float lastNormalizeTime = 0;
+    public long dmgTime = 0;
+    public int killOrder = -1;
+    
+    public float totalClipPoint = 0;
+    public float ClipPoint = 0;
+    public float clientsAttackTime = 0;
+    public long attackPrepareTime = 0;
+	public long attackClipTime = 0;
+	
+    public float totalClipPointSA = 0;
+    public float attackClipTimeSecondsSA = 0;
+    public long attackPrepareTimeSA = 0;
+	public long attackClipTimeSA = 0;
+    
+	public float speedShoot = 0;
+	public float gravity = 0;
+	public float xStartShoot = 0;
+	public float yStartShoot = 0;
+	public float xHitShoot = 0;
+	public float yHitShoot = 0;    
+	public float projectileLength = 0;
+	
+	// calculated
+	public long damageTime = 0;
+	
+	public boolean initiallyLocated = false;
+	public long timeOfCasting;
+	public long timeOfSending;  // The time key of the package sent from the client 
+	                            // (shortly after casting) in 100MS intervals 
+	public long timeOfDeath; 
+	
+	public long spawnTime = 0;
+    
+    public Creature(String acronym)
+    {
+    	this.acronym = acronym;
+    	this.spawnTime = ServerMain.serverTime;
+    }
+     
+    public void calculateParameters() // given attackSpeed, attackClipLength, attackClipSpeed,
+    {    	
+    	attackTime = (long) Math.floor(1000 / attackSpeed);         // in milliseconds
+    	float attackTimeSeconds = (float)attackTime / 1000; // with pause
+    	float attackClipTimeSeconds = attackClipLength / attackClipSpeed; // without pause
+    	float attackClipTimeSecondsSA = attackClipLengthSA / attackClipSpeedSA; // without pause
+    	totalClipPoint = clipPoint * attackClipTimeSeconds / attackTimeSeconds;
+    	totalClipPointSA = clipPointSA * attackClipTimeSecondsSA / attackTimeSeconds;
+    	
+    	attackPauseTimeSeconds = (attackTimeSeconds - attackClipTimeSeconds);   
+    	attackPauseTimeSecondsSA = (attackTimeSeconds - attackClipTimeSecondsSA);   
+    	pauseAttackTime = (long)(attackPauseTimeSeconds * 1000);
+    	pauseAttackTimeSA = (long)(attackPauseTimeSecondsSA * 1000);
+    	
+    	attackPrepareTime = (long)(attackTime * totalClipPoint);
+    	attackPrepareTimeSA = (long)(attackTime * totalClipPointSA); 
+	}
+    
+    public long calculateDamageTime(Vector2 startLocation, Vector2 endLocation)
+    {
+    	float distance = Vector2.magnitude(Vector2.substract(endLocation, startLocation));
+    	damageTime = (long)(rangeAttack ? ((distance - projectileLength - xHitShoot - xStartShoot) / speedShoot) : 0);
+    	return damageTime;
+	}
+    
+    public ArrayList<CreatureEffect> getEffects(CreatureEffect.Occurance occurance)
+    {
+    	ArrayList<CreatureEffect> tempEffects = new ArrayList<CreatureEffect>();
+    	
+    	for(CreatureEffect effect : effects)
+    	{
+    		if(effect.occurance.equals(occurance))
+    			tempEffects.add(effect);
+    	}
+    	return tempEffects;
+    }
+}
+
+//public static class Attack
+//{
+//  public enum TargetFocus { SINGLE_TARGET, AOE, NONE };
+//  public TargetFocus focus;
+//}
+//
+//public static class Ability
+//{
+//  public enum TargetFocus { SINGLE_TARGET, AOE, NONE };
+//  public enum TargetType { FRIENDLY, ENEMY, NONE };
+//  public TargetFocus focus;
+//  public TargetType type;
+//}
