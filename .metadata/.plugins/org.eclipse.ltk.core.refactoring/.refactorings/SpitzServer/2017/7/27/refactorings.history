@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename field &apos;lastChestOpenTime&apos; in &apos;Network.Player&apos; to &apos;nextChestOpenTime&apos;&#x0D;&#x0A;- Original project: &apos;SpitzServer&apos;&#x0D;&#x0A;- Original element: &apos;Network.Player.lastChestOpenTime&apos;&#x0D;&#x0A;- Renamed element: &apos;Network.Player.nextChestOpenTime&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;lastChestOpenTime&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;Network{Player.java[Player^lastChestOpenTime" name="nextChestOpenTime" references="true" setter="false" stamp="1499467089205" textual="false" version="1.0"/>
-</session>

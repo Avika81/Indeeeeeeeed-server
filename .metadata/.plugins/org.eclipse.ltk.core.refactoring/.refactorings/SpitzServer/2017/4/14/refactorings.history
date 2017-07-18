@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename local variable &apos;allowOneSidedUpdate&apos; in &apos;Network.GameManager.checkNextConfirmedTime()&apos; to &apos;allowUpdate&apos;&#x0D;&#x0A;- Original project: &apos;SpitzServer&apos;&#x0D;&#x0A;- Original element: &apos;Network.GameManager.checkNextConfirmedTime().allowOneSidedUpdate&apos;&#x0D;&#x0A;- Renamed element: &apos;allowOneSidedUpdate&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;allowOneSidedUpdate&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;Network{GameManager.java[GameManager~checkNextConfirmedTime@allowOneSidedUpdate!26155!26245!26163!26181!Z!0!false" name="allowUpdate" references="true" stamp="1491604250985" version="1.0"/>
-</session>

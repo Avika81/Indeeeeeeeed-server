@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename local variable &apos;c&apos; in &apos;Main.isAnagram(...)&apos; to &apos;key&apos;&#x0D;&#x0A;- Original project: &apos;Prepare&apos;&#x0D;&#x0A;- Original element: &apos;Main.isAnagram(String, String).c&apos;&#x0D;&#x0A;- Renamed element: &apos;c&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;c&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{Main.java[Main~isAnagram~QString;~QString;@c!283!306!288!288!C!0!false" name="key" references="true" stamp="1499910674163" version="1.0"/>
-</session>
