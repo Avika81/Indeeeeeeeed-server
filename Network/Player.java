@@ -211,7 +211,6 @@ public class Player {
 	// }
 
 	public synchronized void sendData(String _string) {
-
 		if(isAI)
 			return;
 

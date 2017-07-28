@@ -239,14 +239,11 @@ public class Lobby {
 
 	// Iterates over all players and handles their data
 	public void handlePlayersData() {
-		for (Player player : Lobby.allPlayers.values())
+		for(Player player : Lobby.allPlayers.values())
 		{
 //			System.out.println("Client #: " + player.playerIndex + " Inputbuffer: " + player.inputBuffer + " Servertime: " + ServerMain.serverTime);
-			
 			while(player.inputBuffer.contains(Constants.SEMI_COLON_SEPERATOR)) {
-//				System.out.println("inputBuffer BEFORE:" + player.inputBuffer);
 				String txt = player.readPlayerBuffer();
-//				System.out.println("1. readPlayerBuffer: " + txt);
 				if(!txt.equals(""))
 					player.handleData(txt);
 			}
@@ -254,7 +251,7 @@ public class Lobby {
 	}
 	
 	public static void sendPingsToAllPlayers() {
-		for (Player player : Lobby.allPlayers.values()) {
+		for(Player player : Lobby.allPlayers.values()) {
 			if(!player.isAI && ServerMain.serverTime > player.nextPingTime) {
 				player.sendPing();
 				player.nextPingTime += PING_TIME_INTERVAL;
